@@ -1,0 +1,24 @@
+{
+    "versionLabel": "1.0",
+    "uuid": "33c99868-82f7-4a52-8ae8-e04d26720e24",
+    "appKeys": {},
+    "longName": "Gallifrey",
+    "versionCode": 1,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "Gallifrey",
+    "companyName": "bobertperry",
+    "watchapp": {
+        "watchface": true
+    },
+    "resources": {
+        "media": [
+            {
+                "type": "png",
+                "name": "IMAGE_BACKGROUND",
+                "file": "images/Background2.png"
+            }
+        ]
+    }
+}
