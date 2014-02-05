@@ -20,7 +20,7 @@ static GPathInfo PATH_INFO = {
 };
 
 
-//Updates PathInfo 
+//Updates PathInfo. Probably should hard code paths, use images, or something clever in the future to save batt & such
 void CircleSegments(int radius, GPoint center, int startingDegree, int endingDegree)
 {
     int numOfDegreees = endingDegree - startingDegree;
@@ -102,18 +102,18 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 		
 		
 		case 7:
-			CircleSegments(17, hoursOneCenter, 150, 320);
+			CircleSegments(18, hoursOneCenter, 147, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
 		
 		case 6:
-			CircleSegments(11, hoursOneCenter, 150, 320);
+			CircleSegments(14, hoursOneCenter, 145, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
 		case 5:
-			CircleSegments(7, hoursOneCenter, 150, 320);
+			CircleSegments(10, hoursOneCenter, 150, 320);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
@@ -172,12 +172,12 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 	
 		
 		case 6:
-			CircleSegments(17, minsTenCenter, 140, 340);
+			CircleSegments(15, minsTenCenter, -35, 147);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
 		case 5:
-			CircleSegments(10, minsTenCenter, 140, 330);
+			CircleSegments(10, minsTenCenter, -34, 143);//140,330
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
@@ -224,18 +224,18 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 		
 		
 		case 7:
-			CircleSegments(17, minsOneCenter, 170, 350);
+			CircleSegments(16, minsOneCenter, 162, 358);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
 		
 		case 6:
-			CircleSegments(11, minsOneCenter, 170, 350);
+			CircleSegments(11, minsOneCenter, 158, 352);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
 		case 5:
-			CircleSegments(7, minsOneCenter, 170, 350);
+			CircleSegments(7, minsOneCenter, 163, 348);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
@@ -243,13 +243,13 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 		
 		
 		case 9:
-			CircleSegments(17, minsOneCenter, -36, 183);
+			CircleSegments(17, minsOneCenter, -31, 186);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
 
 		case 8:
-			CircleSegments(11, minsOneCenter, -37, 180);
+			CircleSegments(11, minsOneCenter, -32, 180);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
@@ -274,7 +274,6 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 	minTensPlace = tick_time->tm_min / 10;
 	minOnesPlace = tick_time->tm_min % 10;
 	hourOnesPlace = tick_time->tm_hour % 10;
-	
 	
 	layer_mark_dirty(drawLayer);
  }

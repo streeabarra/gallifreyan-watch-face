@@ -22,11 +22,6 @@
             },
             {
                 "type": "png",
-                "name": "SCREEN_SHOT",
-                "file": "images/outside.png"
-            },
-            {
-                "type": "png",
                 "name": "IMAGE_BACKGROUND",
                 "file": "images/Background2.png"
             }
