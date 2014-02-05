@@ -55,9 +55,9 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 		case 1:
 		    graphics_context_set_stroke_color(ctx, GColorWhite);
 			graphics_draw_line(ctx, hoursTenCenter,GPoint(75,37));
-		    graphics_draw_line(ctx, GPoint(88,47),GPoint(75, 38));
-			graphics_draw_line(ctx, GPoint(88,48),GPoint(75, 39));
-			graphics_draw_line(ctx, GPoint(88,49),GPoint(75, 40));
+		    graphics_draw_line(ctx, GPoint(44,85),GPoint(75, 38));
+			graphics_draw_line(ctx, GPoint(44,86),GPoint(75, 39));
+			graphics_draw_line(ctx, GPoint(44,87),GPoint(75, 40));
 		break;
 		case 2:
 			graphics_context_set_fill_color(ctx, GColorWhite);
