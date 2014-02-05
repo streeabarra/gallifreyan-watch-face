@@ -1,14 +1,16 @@
 #include <pebble.h>
 
+//Evil gloabl varables. Dont care, lazy.
 static Window *my_window;
 static GBitmap *backgroundBitmap;
 static BitmapLayer *backgroundLayer;
 static Layer *drawLayer;
 
-int hourTensPlace; 
-int hourOnesPlace;
-int minTensPlace;
-int minOnesPlace;
+static int hourTensPlace; 
+static int hourOnesPlace;
+static int minTensPlace;
+static int minOnesPlace;
+
 
 
 static const int NUM_POINTS = 10;
@@ -18,6 +20,7 @@ static GPathInfo PATH_INFO = {
 };
 
 
+//Updates PathInfo 
 void CircleSegments(int radius, GPoint center, int startingDegree, int endingDegree)
 {
     int numOfDegreees = endingDegree - startingDegree;
@@ -36,15 +39,13 @@ void CircleSegments(int radius, GPoint center, int startingDegree, int endingDeg
     }
 }
 
-
+//Draws digits
 static void my_layer_draw(Layer *layer, GContext *ctx) { 
-    GRect bounds = layer_get_bounds(layer);
 
 	GPoint hoursTenCenter = GPoint(44,84);
 	GPoint hoursOneCenter = GPoint(88, 46);
 	GPoint minsTenCenter = GPoint(73, 120);
-	GPoint minsOneCenter = GPoint(120, 89);		
-	
+	GPoint minsOneCenter = GPoint(120, 89);			
 	GPath * outsidePathPtr;
 	
 	switch(hourTensPlace)
@@ -242,13 +243,13 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 		
 		
 		case 9:
-			CircleSegments(17, minsOneCenter, -38, 180);
+			CircleSegments(17, minsOneCenter, -36, 183);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
 
 		case 8:
-			CircleSegments(11, minsOneCenter, -38, 180);
+			CircleSegments(11, minsOneCenter, -37, 180);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
@@ -259,7 +260,7 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 	
 }
 
-
+//called once a min
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 
 	
@@ -278,16 +279,21 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 	layer_mark_dirty(drawLayer);
  }
 
-void handle_init(void) {
 
+void handle_init(void) {
+	GRect bounds;
+	Layer *window_layer;
+	
+	//Set up window
 	my_window = window_create();
 	window_stack_push(my_window, true /* Animated */);
-	Layer *window_layer = window_get_root_layer(my_window);
-	GRect bounds = layer_get_frame(window_layer);
+	window_layer = window_get_root_layer(my_window);
+	bounds = layer_get_frame(window_layer);
 	
+	//Create Bitmap from image
 	backgroundBitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
 	
-	// The bitmap layer holds the image for display
+	// Copied this from the pebble tutorial 
 	backgroundLayer = bitmap_layer_create(bounds);
 	bitmap_layer_set_bitmap(backgroundLayer, backgroundBitmap);
 	bitmap_layer_set_alignment(backgroundLayer, GAlignCenter);
@@ -297,7 +303,8 @@ void handle_init(void) {
 	drawLayer = layer_create(bounds);
 	layer_add_child(bitmap_layer_get_layer(backgroundLayer), (Layer*)drawLayer);
 	
-	tick_timer_service_subscribe(SECOND_UNIT, handle_minute_tick);
+	//Callbacks
+	tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
 	layer_set_update_proc((Layer*)drawLayer,my_layer_draw);
 }
 
