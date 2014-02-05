@@ -5,7 +5,7 @@
     "longName": "Gallifrey",
     "versionCode": 2,
     "capabilities": [
-        ""
+        "configurable"
     ],
     "shortName": "Gallifrey",
     "companyName": "bobertperry",
