@@ -1,6 +1,6 @@
 #include <pebble.h>
 
-//Evil gloabl varables. Dont care, lazy.
+//Evil global varables. Dont care, lazy.
 static Window *my_window;
 static GBitmap *backgroundBitmap;
 static BitmapLayer *backgroundLayer;
@@ -50,27 +50,37 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 	
 	switch(hourTensPlace)
 	{
-		case 0:
+	case 0:   
+      graphics_context_set_stroke_color(ctx, GColorWhite);
+      graphics_draw_line(ctx, GPoint(1,168),hoursTenCenter);
+      graphics_draw_line(ctx, GPoint(1,167),GPoint(44,85));
+      graphics_draw_line(ctx, GPoint(1,166),GPoint(44,86));
+      graphics_draw_line(ctx, GPoint(1,165),GPoint(44,87));    
 		break;
 		case 1:
 		    graphics_context_set_stroke_color(ctx, GColorWhite);
 			graphics_draw_line(ctx, hoursTenCenter,GPoint(75,37));
-		    graphics_draw_line(ctx, GPoint(44,85),GPoint(75, 38));
+      graphics_draw_line(ctx, GPoint(44,85),GPoint(75, 38));
 			graphics_draw_line(ctx, GPoint(44,86),GPoint(75, 39));
 			graphics_draw_line(ctx, GPoint(44,87),GPoint(75, 40));
 		break;
 		case 2:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-			graphics_fill_circle(ctx, hoursTenCenter, 18);
+	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, hoursTenCenter , 16);
 			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, hoursTenCenter, 16);					
+			graphics_fill_circle(ctx, hoursTenCenter, 14);			
 		default:
 		break;
 	};
 
 	switch(hourOnesPlace)
 	{
-		case 0:
+			case 0:    
+      graphics_context_set_stroke_color(ctx, GColorWhite);
+      graphics_draw_line(ctx, hoursOneCenter,GPoint(74,20));
+      graphics_draw_line(ctx, GPoint(88,47),GPoint(74,21));
+      graphics_draw_line(ctx, GPoint(88,48),GPoint(74,22));
+      graphics_draw_line(ctx, GPoint(88,49),GPoint(74,23));
 		break;
 		case 1:
 		    graphics_context_set_stroke_color(ctx, GColorWhite);
@@ -80,107 +90,125 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 			graphics_draw_line(ctx, GPoint(38,64),GPoint(88,49));		
 		break;
 		
-
-		case 4:
+case 2:
 			graphics_context_set_fill_color(ctx, GColorWhite);
    			graphics_fill_circle(ctx, hoursOneCenter , 16);
 			graphics_context_set_fill_color(ctx, GColorBlack);
 			graphics_fill_circle(ctx, hoursOneCenter, 14);	
-		case 3:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, hoursOneCenter , 12);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, hoursOneCenter, 10);	
-		case 2:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, hoursOneCenter , 8);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, hoursOneCenter, 6);
-			
+		break;
+    
+    		case 3:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, hoursOneCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, hoursOneCenter, 14);	
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, hoursOneCenter , 10);		
+    break;
+    
+       case 4:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, hoursOneCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, hoursOneCenter, 14);	
+    			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, hoursOneCenter , 10);		
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, hoursOneCenter , 6);
+
 		break;
 		
-		
-		
-		case 7:
-			CircleSegments(18, hoursOneCenter, 147, 328);
+				case 7:
+			CircleSegments(10, hoursOneCenter, 150, 320);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);			
-		
+			gpath_draw_outline(ctx,outsidePathPtr);	
 		case 6:
 			CircleSegments(14, hoursOneCenter, 145, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
-		case 5:
-			CircleSegments(10, hoursOneCenter, 150, 320);
+		   	case 5:
+			CircleSegments(18, hoursOneCenter, 147, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
+    
 		break;
 		
-		
 		case 9:
+			CircleSegments(11, hoursOneCenter, -50, 175);
+			graphics_context_set_stroke_color(ctx, GColorWhite);		
+			outsidePathPtr = gpath_create(&PATH_INFO);
+			gpath_draw_outline(ctx,outsidePathPtr);	
+		case 8:
 			CircleSegments(17, hoursOneCenter, -50, 170);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
-
-		case 8:
-			CircleSegments(11, hoursOneCenter, -50, 175);
-			graphics_context_set_stroke_color(ctx, GColorWhite);		
-			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);		
+	
 		
 		default:
 		break;
 	};
-	
-
-
-	switch(minTensPlace)
+  
+	switch(minTensPlace)  
 	{
-		case 0:
+			case 0:
+       graphics_context_set_fill_color(ctx, GColorWhite);
+    graphics_draw_line(ctx, minsTenCenter,GPoint(87,167));
+    graphics_draw_line(ctx, GPoint(73,121),GPoint(88,167));
+    graphics_draw_line(ctx, GPoint(73,122),GPoint(89,167));
+    graphics_draw_line(ctx, GPoint(73,123),GPoint(90,167));
 		break;
+    
 		case 1:
 		    graphics_context_set_stroke_color(ctx, GColorWhite);
 			graphics_draw_line(ctx, minsTenCenter,GPoint(108,73));
-		    graphics_draw_line(ctx, GPoint(73,121),GPoint(108,74));
+	    graphics_draw_line(ctx, GPoint(73,121),GPoint(108,74));
 			graphics_draw_line(ctx, GPoint(73,122),GPoint(108,75));
 			graphics_draw_line(ctx, GPoint(73,123),GPoint(108,76));		
 		break;
 		
-
-
-		case 4:
+case 2:
 			graphics_context_set_fill_color(ctx, GColorWhite);
    			graphics_fill_circle(ctx, minsTenCenter , 16);
 			graphics_context_set_fill_color(ctx, GColorBlack);
 			graphics_fill_circle(ctx, minsTenCenter, 14);	
-		case 3:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, minsTenCenter , 12);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, minsTenCenter, 10);			
-		case 2:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, minsTenCenter , 8);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, minsTenCenter, 6);	
 		break;
-		
-	
-		
-		case 6:
+    
+    		case 3:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, minsTenCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, minsTenCenter, 14);	
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsTenCenter , 10);		
+    break;
+    
+       case 4:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, minsTenCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, minsTenCenter, 14);	
+    			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsTenCenter , 10);		
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsTenCenter , 6);
+
+		break;
+    
+			case 6:
+			CircleSegments(10, minsTenCenter, -34, 143);//140,330
+			graphics_context_set_stroke_color(ctx, GColorWhite);		
+			outsidePathPtr = gpath_create(&PATH_INFO);
+			gpath_draw_outline(ctx,outsidePathPtr);		
+		case 5:
 			CircleSegments(15, minsTenCenter, -35, 147);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
-		case 5:
-			CircleSegments(10, minsTenCenter, -34, 143);//140,330
-			graphics_context_set_stroke_color(ctx, GColorWhite);		
-			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);			
+		
 			break;
 		
 		
@@ -191,68 +219,80 @@ static void my_layer_draw(Layer *layer, GContext *ctx) {
 	
 	switch(minOnesPlace)
 	{
-		case 0:
+				case 0:
+    		 graphics_context_set_fill_color(ctx, GColorWhite);
+    graphics_draw_line(ctx, minsOneCenter,GPoint(144,34));
+    graphics_draw_line(ctx, GPoint(120,90),GPoint(144,33));
+    graphics_draw_line(ctx, GPoint(120,91),GPoint(144,32));
+    graphics_draw_line(ctx, GPoint(120,92),GPoint(144,31));
 		break;
-		case 1:
+	
+    case 1:
 		    graphics_context_set_stroke_color(ctx, GColorWhite);
 			graphics_draw_line(ctx, GPoint(65,105),minsOneCenter);
 		    graphics_draw_line(ctx, GPoint(65,106),GPoint(120,90));
 			graphics_draw_line(ctx, GPoint(65,107),GPoint(120,91));
 			graphics_draw_line(ctx, GPoint(65,108),GPoint(120,92));		
 		break;
-		
 
-		case 4:
+       case 2:
 			graphics_context_set_fill_color(ctx, GColorWhite);
    			graphics_fill_circle(ctx, minsOneCenter , 16);
 			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, minsOneCenter, 14);			
-		
-		case 3:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, minsOneCenter , 12);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, minsOneCenter, 10);	
-		case 2:
-			graphics_context_set_fill_color(ctx, GColorWhite);
-   			graphics_fill_circle(ctx, minsOneCenter , 8);
-			graphics_context_set_fill_color(ctx, GColorBlack);
-			graphics_fill_circle(ctx, minsOneCenter, 6);	
-		
+			graphics_fill_circle(ctx, minsOneCenter, 14);	
+		break;
+    
+    		case 3:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, minsOneCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, minsOneCenter, 14);	
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsOneCenter , 10);		
+    break;
+    
+       case 4:
+    	graphics_context_set_fill_color(ctx, GColorWhite);
+   			graphics_fill_circle(ctx, minsOneCenter , 16);
+    	graphics_context_set_fill_color(ctx, GColorBlack);
+			graphics_fill_circle(ctx, minsOneCenter, 14);	
+    			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsOneCenter , 10);		
+			graphics_context_set_stroke_color(ctx, GColorWhite);
+   			graphics_draw_circle(ctx, minsOneCenter , 6);
+
 		break;
 		
-		
-		
-		case 7:
-			CircleSegments(16, minsOneCenter, 162, 358);
+				case 7:
+			CircleSegments(7, minsOneCenter, 163, 348);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);			
-		
-		case 6:
+			gpath_draw_outline(ctx,outsidePathPtr);		
+				case 6:
 			CircleSegments(11, minsOneCenter, 158, 352);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
 		case 5:
-			CircleSegments(7, minsOneCenter, 163, 348);
+			CircleSegments(16, minsOneCenter, 162, 358);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
+		
 			break;
 		
-		
-		case 9:
+				case 9:
+			CircleSegments(11, minsOneCenter, -32, 180);
+			graphics_context_set_stroke_color(ctx, GColorWhite);		
+			outsidePathPtr = gpath_create(&PATH_INFO);
+			gpath_draw_outline(ctx,outsidePathPtr);		
+		case 8:
 			CircleSegments(17, minsOneCenter, -31, 186);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
 
-		case 8:
-			CircleSegments(11, minsOneCenter, -32, 180);
-			graphics_context_set_stroke_color(ctx, GColorWhite);		
-			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);		
+
 		
 		default:
 		break;

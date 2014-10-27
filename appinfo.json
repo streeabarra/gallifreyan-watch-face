@@ -1,30 +1,31 @@
 {
-    "versionLabel": "1.0",
-    "uuid": "33c99868-82f7-4a52-8ae8-e04d26720e24",
     "appKeys": {},
-    "longName": "Gallifrey",
-    "versionCode": 2,
     "capabilities": [
-        "configurable"
+        ""
     ],
-    "shortName": "Gallifrey",
-    "companyName": "bobertperry",
-    "watchapp": {
-        "watchface": true
-    },
+    "companyName": "straa",
+    "longName": "Gallifrey",
+    "projectType": "native",
     "resources": {
         "media": [
             {
+                "file": "images/MenuImage.png",
                 "menuIcon": true,
-                "type": "png",
                 "name": "MENU_IMG_SMALL",
-                "file": "images/MenuImage.png"
+                "type": "png"
             },
             {
-                "type": "png",
+                "file": "images/Background2.png",
                 "name": "IMAGE_BACKGROUND",
-                "file": "images/Background2.png"
+                "type": "png"
             }
         ]
+    },
+    "shortName": "Gallifrey",
+    "uuid": "33c99868-82f7-4a52-8ae8-e04d26720e25",
+    "versionCode": 2,
+    "versionLabel": "2.0",
+    "watchapp": {
+        "watchface": true
     }
 }
