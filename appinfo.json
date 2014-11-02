@@ -24,7 +24,7 @@
     "shortName": "Gallifrey",
     "uuid": "33c99868-82f7-4a52-8ae8-e04d26720e25",
     "versionCode": 2,
-    "versionLabel": "2.0",
+    "versionLabel": "2.5",
     "watchapp": {
         "watchface": true
     }

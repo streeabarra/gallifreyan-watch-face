@@ -123,16 +123,19 @@ case 2:
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);	
+      gpath_destroy(outsidePathPtr);
 		case 6:
 			CircleSegments(14, hoursOneCenter, 145, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
+      gpath_destroy(outsidePathPtr);
 		   	case 5:
 			CircleSegments(18, hoursOneCenter, 147, 328);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
+      gpath_destroy(outsidePathPtr);
     
 		break;
 		
@@ -141,11 +144,13 @@ case 2:
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);	
+      gpath_destroy(outsidePathPtr);
 		case 8:
 			CircleSegments(17, hoursOneCenter, -50, 170);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
+      gpath_destroy(outsidePathPtr);
 	
 		
 		default:
@@ -203,11 +208,13 @@ case 2:
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
-		case 5:
+		  gpath_destroy(outsidePathPtr);
+    case 5:
 			CircleSegments(15, minsTenCenter, -35, 147);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
+      gpath_destroy(outsidePathPtr);
 		
 			break;
 		
@@ -268,16 +275,19 @@ case 2:
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
+      gpath_destroy(outsidePathPtr);
 				case 6:
 			CircleSegments(11, minsOneCenter, 158, 352);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);
-		case 5:
+		  gpath_destroy(outsidePathPtr);
+    case 5:
 			CircleSegments(16, minsOneCenter, 162, 358);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);			
+      gpath_destroy(outsidePathPtr);
 		
 			break;
 		
@@ -286,11 +296,13 @@ case 2:
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
 			gpath_draw_outline(ctx,outsidePathPtr);		
+      gpath_destroy(outsidePathPtr);
 		case 8:
 			CircleSegments(17, minsOneCenter, -31, 186);
 			graphics_context_set_stroke_color(ctx, GColorWhite);		
 			outsidePathPtr = gpath_create(&PATH_INFO);
-			gpath_draw_outline(ctx,outsidePathPtr);		
+			gpath_draw_outline(ctx,outsidePathPtr);	
+    gpath_destroy(outsidePathPtr);
 
 
 		
